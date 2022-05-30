@@ -1,0 +1,101 @@
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100vw;
+
+    @include BkM {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    font-size: $sizeTextNav;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    text-shadow: $shadowTextNav;
+    
+
+    .logo {
+        color: $colorTextNav;
+        margin-left: 1.5em;
+        transition: transform 2s;
+
+        &:hover {
+            transform: scale(130%);
+        }
+    }
+
+    .nav {
+        @include BkS {
+            /*&-openMenu, &-closeMenu {
+                margin-right: 0.5em;
+                height: 2rem;
+            }*/
+
+            input[type="checkbox"] {
+                position: absolute;
+                right: 0.7em;
+                top: 0.4em;
+                opacity: 0;
+                height: 5rem;
+                width: 5rem;
+            }
+    
+            .nav-openMenu, .nav-closeMenu {
+                display: block;
+                position: absolute;
+                right: 0.2em;
+                margin-right: 0.2em;
+                top: 0.2em;
+                pointer-events: none;
+                height: 5rem;
+            }
+    
+            &-item {
+                display: none;
+            }
+    
+            input:checked ~ .nav-item {
+                &-first {
+                    margin-top: 1em;
+                }
+
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+            }
+    
+            input:checked ~ .nav-openMenu {
+                display: none;
+            }
+    
+            input:not(:checked) ~ .nav-closeMenu {
+                display: none;
+            }
+        }
+
+        @include BkM {
+            .nav-openMenu, .nav-closeMenu, input[type=checkbox] {
+                display: none;
+            }
+
+            &-item {
+                display: inline-flex;
+                margin-inline: 1.5em;
+
+                & a {
+                    transition: transform 2s;
+
+                    &:hover {
+                        transform: scale(130%);
+                        color: $colorTextNav;
+                    }
+                }
+            }
+        }
+
+        &-item a {
+            color: $colorTextNav;
+        }
+    }
+}

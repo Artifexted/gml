@@ -1,0 +1,26 @@
+/* Reinicio */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+/* Enlaces */
+a {
+    text-decoration: none;
+}
+
+/* Cuerpo de página */
+body {
+    background: $bg;
+    height: 100vh;
+}
+
+/* List items */
+li {
+    list-style: none;
+}

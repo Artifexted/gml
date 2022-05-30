@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/* Reinicio */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+/* Enlaces */
+a {
+  text-decoration: none;
+}
+
+/* Cuerpo de página */
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#191919));
+  background: linear-gradient(to bottom, #000, #191919);
+  height: 100vh;
+}
+
+/* List items */
+li {
+  list-style: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100vw;
+  font-size: 2.3rem;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  text-shadow: -1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 0 rgba(0, 0, 0, 0.8), 1px -1px 0 rgba(0, 0, 0, 0.8), -1px -1px 0 rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (min-width: 720px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+header .logo {
+  color: #FFF;
+  margin-left: 1.5em;
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
+}
+
+header .logo:hover {
+  -webkit-transform: scale(130%);
+          transform: scale(130%);
+}
+
+@media screen and (max-width: 719px) {
+  header .nav {
+    /*&-openMenu, &-closeMenu {
+                margin-right: 0.5em;
+                height: 2rem;
+            }*/
+  }
+  header .nav input[type="checkbox"] {
+    position: absolute;
+    right: 0.7em;
+    top: 0.4em;
+    opacity: 0;
+    height: 5rem;
+    width: 5rem;
+  }
+  header .nav .nav-openMenu, header .nav .nav-closeMenu {
+    display: block;
+    position: absolute;
+    right: 0.2em;
+    margin-right: 0.2em;
+    top: 0.2em;
+    pointer-events: none;
+    height: 5rem;
+  }
+  header .nav-item {
+    display: none;
+  }
+  header .nav input:checked ~ .nav-item {
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  header .nav input:checked ~ .nav-item-first {
+    margin-top: 1em;
+  }
+  header .nav input:checked ~ .nav-openMenu {
+    display: none;
+  }
+  header .nav input:not(:checked) ~ .nav-closeMenu {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  header .nav .nav-openMenu, header .nav .nav-closeMenu, header .nav input[type=checkbox] {
+    display: none;
+  }
+  header .nav-item {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-inline: 1.5em;
+  }
+  header .nav-item a {
+    -webkit-transition: -webkit-transform 2s;
+    transition: -webkit-transform 2s;
+    transition: transform 2s;
+    transition: transform 2s, -webkit-transform 2s;
+  }
+  header .nav-item a:hover {
+    -webkit-transform: scale(130%);
+            transform: scale(130%);
+    color: #FFF;
+  }
+}
+
+header .nav-item a {
+  color: #FFF;
+}
+
+h1 {
+  margin-top: 2em;
+  margin-left: 0.3em;
+  color: #FFF;
+  font-size: 4rem;
+}
+
+h2 {
+  margin-left: 0.7em;
+  color: #FFF;
+  font-size: 3rem;
+}
+
+p {
+  margin-left: 1.5em;
+  color: #FFF;
+  font-size: 2rem;
+}
+
+.primaryInfo-title, .primaryInfo-img {
+  position: relative;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-filter: brightness(85%);
+          filter: brightness(85%);
+  -webkit-transition: -webkit-filter 2s;
+  transition: -webkit-filter 2s;
+  transition: filter 2s;
+  transition: filter 2s, -webkit-filter 2s;
+}
+
+.primaryInfo-title:hover, .primaryInfo-img:hover {
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+.primaryInfo-title h1, .primaryInfo-img h1 {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  color: #FFF;
+  text-shadow: 2px 2px #000;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 7rem;
+}
+
+.primaryInfo p {
+  margin-top: 20px;
+}
+/*# sourceMappingURL=style.css.map */
