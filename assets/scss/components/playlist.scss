@@ -1,0 +1,39 @@
+/* Playlist de los trabajos realizados */
+#playlist, #playlist2 {
+    @include BkL {
+        width: 40em;
+        margin-left: 5em;
+    }
+    
+    background-color: rgba(40, 40, 40, 0.8);
+    border: #dbdbdb 2px solid;
+    width: 100vw;
+    padding: 20px;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 15em;
+    overflow: auto;
+    text-align: center;
+
+    a {
+        text-decoration:none;
+    }
+    
+    .active a {
+        color:#5DB0E6;
+        text-decoration:none;
+    }
+    
+    li a{
+        color:#eeeedd;
+        
+        padding:5px;
+        display:block;
+        transition: color 1s;
+    }
+    
+    li a:hover{
+        text-decoration:none;
+        color: rgb(255, 98, 98);
+    }
+}
