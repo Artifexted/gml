@@ -112,6 +112,12 @@ p {
   filter: brightness(1.15);
   transform: scale(1.1);
 }
+.footer .credits {
+  font-size: 1.1rem;
+}
+.footer .credits .digitaros {
+  color: rgb(0, 240, 0);
+}
 
 /* Playlist de los trabajos realizados */
 #playlist, #playlist2 {
