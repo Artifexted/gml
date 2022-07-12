@@ -6,6 +6,7 @@
     a {
         color: #FFFFFF !important;
         transition: transform 2s;
+        font-size: 1.43rem;
 
         @include BkL {
             &:hover {
@@ -21,6 +22,5 @@
 
     .navbar-toggler {
         filter: invert(1);
-        
     }
 }

@@ -35,6 +35,7 @@ li {
 .navbar a {
   color: #FFFFFF !important;
   transition: transform 2s;
+  font-size: 1.43rem;
 }
 @media screen and (min-width: 1024px) {
   .navbar a:hover {
@@ -47,6 +48,12 @@ li {
 }
 .navbar .navbar-toggler {
   filter: invert(1);
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    margin-top: 1em;
+  }
 }
 
 h1 {
@@ -79,6 +86,33 @@ p {
   color: #FFF;
 }
 
+.works h1, .works h2, .works p {
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 2em;
+}
+.footer h3 {
+  color: #FFF;
+  margin-bottom: 1.5rem;
+}
+.footer-social {
+  display: inline-block;
+}
+.footer img {
+  height: 48px;
+  filter: brightness(0.95);
+  transition: all 1s;
+}
+.footer img:hover {
+  filter: brightness(1.15);
+  transform: scale(1.1);
+}
+
 /* Playlist de los trabajos realizados */
 #playlist, #playlist2 {
   background-color: rgba(40, 40, 40, 0.8);
@@ -94,7 +128,7 @@ p {
 @media screen and (min-width: 1024px) {
   #playlist, #playlist2 {
     width: 40em;
-    margin-left: 5em;
+    margin-inline: auto;
   }
 }
 #playlist a, #playlist2 a {
