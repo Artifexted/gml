@@ -21,16 +21,10 @@ const aSongs = [
   { title: "Ya no está", author: "Hijos de Apolo", url: "../assets/song/ya_no_esta.mp3" }
 ];
 
-let htmlCode = `
-  <li>
-  <audio id="audio" preload="auto" tabindex="0" controls="" >
-    <source src="../assets/song/a_la_sombra.mp3">
-  </audio>
-  </li>
-`;
+let htmlCodeProd = ``;
 
 aSongs.forEach(function(song) {
-    htmlCode += `<li>
+    htmlCodeProd += `<li>
       <a href="${song.url}">
         ${song.title} - ${song.author}
       </a>
@@ -39,45 +33,7 @@ aSongs.forEach(function(song) {
 
 const sSongs = document.querySelector("#playlist");
 
-sSongs.innerHTML = htmlCode;
-
-// Funcionalidad del reproductor
-function init(){
-    var audio = document.getElementById('audio');
-    var playlist = document.getElementById('playlist');
-    var tracks = playlist.getElementsByTagName('a');
-    audio.volume = 1;
-    //audio.play();
-    
-    for(var track in tracks) {
-      var link = tracks[track];
-      if(typeof link === "function" || typeof link === "number") continue;
-      
-			link.addEventListener('click', function(e) {
-      	e.preventDefault();
-        var song = this.getAttribute('href');
-       	run(song, audio, this);
-      });
-    }
-    
-    audio.addEventListener('ended',function(e) {
-        for(var track in tracks) {
-					var link = tracks[track];
-          var nextTrack = parseInt(track) + 1;
-        	if(typeof link === "function" || typeof link === "number") continue;
-          if(!this.src) this.src = tracks[0];
-          if(track == (tracks.length - 1)) nextTrack = 0;
-                                	console.log(nextTrack);
-        	if(link.getAttribute('href') === this.src) {
-          	var nextLink = tracks[nextTrack];
-          	run(nextLink.getAttribute('href'), audio, nextLink);
-            break;
-          }
-        }
-    });
-}
-
-init();
+sSongs.innerHTML = htmlCodeProd;
 
 // Contenido de la playlist de BEATS
 const aBeats = [
@@ -87,13 +43,7 @@ const aBeats = [
   { title: "Loop para app - Surfónico", url: "../assets/song/beats/loop_app.mp3" }
 ];
 
-let htmlCodeBeats = `
-  <li>
-  <audio id="audio_beats" preload="auto" tabindex="0" controls="" >
-    <source src="../assets/song/beats/escape.mp3">
-  </audio>
-  </li>
-`;
+let htmlCodeBeats = ``;
 
 aBeats.forEach(function(beat) {
     htmlCodeBeats += `<li>
@@ -103,15 +53,61 @@ aBeats.forEach(function(beat) {
   </li>`
 });
 
-const sBeats = document.querySelector("#playlist2");
+const sBeats = document.querySelector("#playlist_beats");
 
 sBeats.innerHTML = htmlCodeBeats;
 
+// Funcionalidad del reproductor
+function init(){
+    var audio = document.getElementById('audio');
+    var playlist_prod = document.getElementById('playlist');
+    var playlist_beats = document.getElementById('playlist_beats');
+    var tracks_prod = playlist_prod.getElementsByTagName('a');
+    var tracks_beats = playlist_beats.getElementsByTagName('a');
+    audio.volume = 1;
+    //audio.play();
+    
+    for(var track in tracks_prod) {
+      var link = tracks_prod[track];
+      if(typeof link === "function" || typeof link === "number") continue;
+      
+			link.addEventListener('click', function(e) {
+      	e.preventDefault();
+        var song = this.getAttribute('href');
+       	run(song, audio, this);
+      });
+    }
+
+    /*for(var track in tracks_beats) {
+      var link = tracks_beats[track];
+      if(typeof link === "function" || typeof link === "number") continue;
+      
+			link.addEventListener('click', function(e) {
+      	e.preventDefault();
+        var song = this.getAttribute('href');
+       	run(song, audio, this);
+      });
+    }*/
+
+}
+
+let htmlMusicPlayer = `
+<audio id="audio" preload="auto" tabindex="0" controls="" >
+  <source src="${aSongs[Math.floor(Math.random()*aSongs.length)].url}">
+</audio>`;
+
+const drawMusicPlayer = document.querySelector("#player");
+
+drawMusicPlayer.innerHTML = htmlMusicPlayer;
+
+init();
+
+/*
 // Funcionalidad del reproductor de BEATS
 function init_beats() {
-  var audio_beats = document.getElementById('audio_beats');
-  var playlist2 = document.getElementById('playlist2');
-  var tracks = playlist2.getElementsByTagName('a');
+  var audio_beats = document.getElementById('audio');
+  var playlist_beats = document.getElementById('playlist_beats');
+  var tracks = playlist_beats.getElementsByTagName('a');
   audio_beats.volume = 1;
   //audio.play();
   
@@ -122,11 +118,11 @@ function init_beats() {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       var song = this.getAttribute('href');
-       run(song, audio_beats, this);
+       run(song, audio, this);
     });
   }
   
-  audio_beats.addEventListener('ended',function(e) {
+  audio.addEventListener('ended',function(e) {
       for(var track in tracks) {
         var link = tracks[track];
         var nextTrack = parseInt(track) + 1;
@@ -143,7 +139,7 @@ function init_beats() {
   });
 }
 
-init_beats();
+init_beats();*/
 
 /* Reproducir sonido */
 function run(song, audio, link){

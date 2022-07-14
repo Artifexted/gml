@@ -1,5 +1,17 @@
-/* Playlist de los trabajos realizados */
-#playlist, #playlist2 {
+// Reproductor / Player
+#player {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+
+    audio {
+        width: 90vw;
+    }
+}
+
+// Playlist
+#playlist, #playlist_beats {
     @include BkL {
         width: 40em;
         margin-inline: auto;
@@ -11,7 +23,7 @@
     padding: 20px;
     list-style: none;
     font-family: Arial, Helvetica, sans-serif;
-    height: 15em;
+    height: 13em;
     overflow: auto;
     text-align: center;
 
@@ -27,8 +39,8 @@
     li a{
         color:#eeeedd;
         
-        padding:5px;
-        display:block;
+        padding: 0.3em;
+        display: block;
         transition: color 1s;
     }
     
