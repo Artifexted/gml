@@ -4,7 +4,7 @@
 Sitio web del productor musical Germán Lucero
 
 ## Deploy ##
-Podés ver la página funcionando desde [github Pages](https://aguslu0.github.io/gml/)
+Podés ver la página funcionando desde [github Pages](https://artifexted.github.io/gml/)
 
 ## Construido con ##
 * HTML
